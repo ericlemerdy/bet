@@ -12,9 +12,11 @@
 			http://www.springframework.org/schema/data/jpa
 			http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd">
 
+    <context:property-placeholder />
+
     <bean id="betDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
           p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://localhost:3306/bet" p:defaultAutoCommit="false"
+          p:url="jdbc:mysql://${BET_DB_PORT_3306_TCP_ADDR}:${BET_DB_PORT_3306_TCP_PORT}/bet" p:defaultAutoCommit="false"
           p:username="bet-user" p:password="dbpwd"
           p:maxActive="8" p:maxIdle="8"
           p:validationQuery="/* ping */"
